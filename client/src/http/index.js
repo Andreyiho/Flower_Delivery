@@ -2,10 +2,10 @@ import axios from 'axios';
 
 
 const $host = axios.create({    
-    baseURL: 'https://flower-delivery-6why.onrender.com/'
+    baseURL: 'http://localhost:5000/'
 })
 const $authHost = axios.create({
-    baseURL: 'https://flower-delivery-6why.onrender.com/'
+    baseURL: 'http://localhost:5000/'
 })
 const authInterceptor = config => {
     config.headers.authorization = `Bearer ${localStorage.getItem('token')}`

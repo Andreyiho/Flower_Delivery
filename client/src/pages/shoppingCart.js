@@ -1,4 +1,3 @@
-// src/pages/ShoppingCart.js
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Card, Button, ToastContainer, Toast, ListGroup, Form } from 'react-bootstrap';
 import { fetchCart, removeFromCart, updateCartProductQuantity, updateUser } from '../http/productAPI';
@@ -18,13 +17,12 @@ const ShoppingCart = () => {
     try {
       const data = await fetchCart(cartId);
 
-      // сортируем товары по названию
       data.shopping_cart_products.sort((a, b) =>
         a.product.name.localeCompare(b.product.name)
       );
 
       setCart(data);
-      setEditingUser(data.user); // подставляем данные пользователя для редактирования
+      setEditingUser(data.user); 
     } catch (err) {
       console.error('Ошибка загрузки корзины:', err);
       showToastMessage('Ошибка загрузки корзины');
@@ -80,9 +78,9 @@ const ShoppingCart = () => {
 
   const handleUserSave = async () => {
     try {
-      await updateUser(editingUser.id, editingUser); // API для обновления пользователя
+      await updateUser(editingUser.id, editingUser); 
       showToastMessage('Данные пользователя обновлены');
-      loadCart(); // перезагружаем корзину с новыми данными
+      loadCart(); 
     } catch (err) {
       console.error(err);
       showToastMessage('Ошибка при сохранении данных пользователя');

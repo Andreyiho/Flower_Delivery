@@ -1,4 +1,3 @@
-// src/pages/OrderDetails.js
 import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
